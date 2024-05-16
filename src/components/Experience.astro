@@ -1,0 +1,36 @@
+---
+import ExperienceItems from "../components/ExperienceItems.astro";
+const EXPERIENCE = [
+    {
+        date: "Actualmente...",
+        title: "Estudiante de ingeniería informática.",
+        description:
+            "Estudiante de tercer año de ingeniería informática en DuocUc en horario vespertino. ",
+        link:"#",
+    },
+    {
+        date: "Actualmente...",
+        title: "Encargado de ventas online",
+        description:
+            "Encargado de ventas online en tienda de mascostas, realizando labores de logistica y administrativas.",
+    },
+    {
+        date: "Enero del 2020",
+        title: "Cajero-Tesorero Bancario",
+        description:
+            "Encargado de ventas online en tienda de mascostas, realizando labores de logistica y administrativas.",
+    },
+
+];
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700">
+    {
+        EXPERIENCE.map((experience) =>(
+        <li class="">
+            <ExperienceItems {...experience} />
+        </li>  
+        ))
+    }
+</ol>
+   

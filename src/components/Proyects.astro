@@ -1,0 +1,26 @@
+---
+const PROJECTS =[
+{
+    title:'Projects 1',
+    description:'Analisis de RECURSOS HUMANOS de empleados de la empresa',
+    link:'#',
+    github:'#',
+    imagen: 'src/components/CapturaProyects.astro/Personal_segun_ departamento.PNG',
+    tags: ['HTML','CSS','JavaScript']
+}]
+---
+
+{
+PROJECTS.map(({imagen, title, description, tags})=>(
+    <article>
+        <h3>{title}</h3>
+        <p>{description}</p>
+            <ul>
+                {tags.map(tag =>(
+                    <li>{tag}</li>
+                ))}
+            </ul>
+            <img src={imagen} alt={`El capture del proyecto ${imagen}`} />
+    </article>
+))
+}

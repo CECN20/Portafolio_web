@@ -1,0 +1,81 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Badge from "../components/Badge.astro";
+import SocialPill from "../components/SocialPill.astro";
+import LinkedInIcon from "../components/icons/linkedin.astro";
+import GitHubIcon from "../components/icons/Github.astro";
+import MailIcon from "../components/icons/Mail.astro";
+import Experience from "../components/Experience.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import BriefcaseIcon from "../components/icons/suitcase.astro";
+import FolderCodeIcon from "../components/icons/ProyectosIcons.astro";
+import Proyects from "../components/Proyects.astro";
+
+---
+
+<Layout
+	title="Portafolio de Carlos - Desarrollador Web y Analista de Datos Jr."
+	descripcion="Contrata a Carlos para el desarrollo de paginas web y analisis de datos."
+>
+	<main class="px-4">
+		<SectionContainer class="py-44 pb-24">
+			<h1
+				class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
+			>
+				Hola, soy Carlos<a
+					href="https://www.linkedin.com/in/carloseduardocolmenarezn/"
+					class="flex justify-center items-center"
+					target="_blank"
+					rel="noopener"
+				>
+					<Badge> Disponible para trabajar </Badge>
+				</a>
+			</h1>
+			<h2 class="text-xl lg:text-2xl text-wrap max-w[700px]">
+				<span> 1 año de experiencia.</span>
+				<span class="text-yellow-200/90">
+					Desarrollar Web y Analista de Datos Jr.</span
+				>
+				<span class="text-blue-200/90"><br />De Caracas, Venezuela</span
+				>
+				<span class="icon-[flagpack--ve]"></span>
+				<span class="icon-[flag--cl-4x3]"></span> Residenciado en Chile.
+				<span class="opacity-85"
+					><br />Estudiante de ingenieria informatica</span
+				>
+				<span class="icon-[la--code]"></span>.
+			</h2>
+			<nav class="flex gap-4 mt-8 flex-wrap">
+				<SocialPill
+					href="https://www.linkedin.com/in/carloseduardocolmenarezn/">
+					<LinkedInIcon class="size-4 md:size-6" />
+					LinkeInn
+				</SocialPill>
+				<SocialPill href="https://github.com/CECN20">
+					<GitHubIcon class="size-4 md:size-6" />
+					Github
+				</SocialPill>
+				<SocialPill>
+					<MailIcon class="size-4 md:size-6" />
+					Carlos.ecn2010@gmail.com
+				</SocialPill>
+			</nav>
+		</SectionContainer>
+
+		<SectionContainer id="EXPERIENCIA">
+			<h2 class=" text-2xl font-semibold mb-6 flex gap-x-3 items-center">
+				<BriefcaseIcon class="size-7" />
+				Experiencia Laboral
+			</h2>
+			<Experience />
+		</SectionContainer>
+		<SectionContainer id="PROYECTOS">
+			<h2 class=" text-2xl font-semibold mb-6 flex gap-x-3 items-center">
+				<FolderCodeIcon class="size-7" />
+				Proyectos
+			</h2>
+			<Proyects />	
+		</SectionContainer>
+	</main>
+
+</Layout>
