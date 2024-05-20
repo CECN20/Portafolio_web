@@ -1,3 +1,10 @@
+![image](https://github.com/CECN20/Portafolio_web/assets/103469168/ecbf3820-eab5-4923-a560-d76d95260a5d)
+
+
+
+
+
+
 # Astro Starter Kit: Basics
 
 ```sh
