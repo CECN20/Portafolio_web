@@ -1,17 +1,104 @@
-<heater class="fixed top-0 z-10 flex items-center justify-between w-full px-2 sm:px-4 mx-auto mt-2">
-    <div class="w-12 h-12 relative flex-shrink-0">
-        <img  
-            class="rounded-lg w-full h-full object-cover"
-            src="https://favim.com/pd/s11/orig/8/822/8226/82268/caricatura-huesos-billy-y-mandy-Favim.com-8226832.jpg"
-            alt="mi foto"
-        />
-    </div>
+---
+import ThemeToggle from "./CambioDeTema.astro"
 
-    <nav class="flex flex-row gap-x-2 sm:gap-x-4 text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-200">
-        <a href="#top">INICIO</a>
-        <a href="#EXPERIENCIA">EXPERIENCIA</a>
-        <a href="#PROYECTO">PROYECTOS</a>
-        <a href="#SOBRE-MI">SOBRE MI</a>
-        <a href="#CONTACTOS">CONTACTOS</a>
-    </nav>
-</heater>
+const navItems = [
+  {
+    title: "Experiencia",
+    label: "experiencia",
+    url: "/#EXPERIENCIA",
+  },
+  {
+    title: "Proyectos",
+    label: "proyectos",
+    url: "/#PROYECTOS",
+  },
+  {
+    title: "Sobre mí",
+    label: "sobre-mi",
+    url: "/#SOBRE-MI",
+  },
+  {
+    title: "Contacto",
+    label: "contacto",
+  },
+]
+---
+
+<header
+  class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2"
+>
+<img src="public/imgpresentacion.jpg" alt="Descripción de la imagen" class="
+rounded-full w-12 h-12 md:w-16 md:h-16">
+  <nav
+    class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center"
+  >
+    {
+      navItems.map((link) => (
+        <a
+          class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400"
+          aria-label={link.label}
+          href={link.url}
+        >
+          {link.title}
+        </a>
+      ))
+    }
+    <ThemeToggle />
+  </nav>
+</header>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const sections = document.querySelectorAll("section")
+    const navItems = document.querySelectorAll("header nav a")
+
+    const callback = (entries: any[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navItems.forEach((item) => {
+            if (item.getAttribute("aria-label") == entry.target.id) {
+              item.classList.add("text-yellow-500")
+            } else {
+              item.classList.remove("text-yellow-500")
+            }
+          })
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(callback, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.3,
+    })
+
+    sections.forEach((section) => {
+      observer.observe(section)
+    })
+
+    // Cleanup function
+    document.onvisibilitychange = () => {
+      if (document.visibilityState === "hidden") {
+        observer.disconnect()
+      } else {
+        sections.forEach((section) => {
+          observer.observe(section)
+        })
+      }
+    }
+  })
+</script>
+
+<style>
+  nav {
+    animation: nav-shadown 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+  }
+
+  @keyframes nav-shadown {
+    to {
+      @apply shadow-lg ring-1 backdrop-blur dark:bg-gray-800/90 bg-white/50 ring-white/10;
+    }
+  }
+</style>
