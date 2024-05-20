@@ -1,4 +1,5 @@
 ![image](https://github.com/CECN20/Portafolio_web/assets/103469168/ecbf3820-eab5-4923-a560-d76d95260a5d)
+![image](https://github.com/CECN20/Portafolio_web/assets/103469168/77495e88-c6b7-4fde-a11f-7f78fe9d3918)
 
 
 
